@@ -1,0 +1,35 @@
+<div>
+    <select ng-model="selectedType">
+        <option value="">Select Filter</option>
+        <option ng-repeat="type in vm.types" value="{{type}}">
+            {{type}}
+        </option>
+    </select>
+</div>
+
+<div class="feed-container">
+    <div ng-repeat="announcement in vm.announcements | orderBy: 'Date.orderDate':'reverse' | filter: selectedType">
+        <div class="feed-container__row">
+            <div class="feed-container__announcement-avatar-container">
+                <div class="feed-container__announcement-avatar {{announcement.Type.Icon}} fa-2x"></div>
+            </div>
+            <div class="feed-container__announcement">
+                <div class="feed-container__announcement-title">
+                    {{::announcement.Title}}
+                </div>
+                <div class="feed-container__announcement-entry-detail">
+                    Type: 
+                    <span class="feed-container__announcement-entry-detail-text">{{::announcement.Type.Title}}</span>
+                    Created By: 
+                    <span class="feed-container__announcement-entry-detail-text">{{::announcement.Owner.Title}}</span>
+                    On: 
+                    <span class="feed-container__announcement-entry-detail-text">{{::announcement.Date.displayDate}}</span>
+                </div>
+                <div class="feed-container__announcement-body">
+                    {{::announcement.Description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

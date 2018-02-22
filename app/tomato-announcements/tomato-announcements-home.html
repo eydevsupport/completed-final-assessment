@@ -1,0 +1,18 @@
+<section class="container-fluid">
+    <tomato-loading-indicator 
+      ng-if="vm.loading" 
+      text="Fetching announcements..."
+    />
+    
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <tomato-card header="The Vine">
+          <tomato-announcements-feed
+            announcements="vm.announcements"
+            types="vm.types"
+          >
+        </tomato-card>
+      </div>
+    </div>
+
+</section>
